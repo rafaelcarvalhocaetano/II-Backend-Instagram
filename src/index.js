@@ -16,7 +16,6 @@ const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
 app.use((req, res, next) => {
-  debugger
   req.io = io;
   res.setHeader('Access-Control-Allow-Origin', 'https://backend-instagram.herokuapp.com');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
@@ -26,7 +25,7 @@ app.use((req, res, next) => {
 })
 app.use(cors({ origin: 'https://backend-instagram.herokuapp.com'}));
 
-app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
+app.use('https://backend-instagram.herokuapp.com/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
 app.use(require('./routes/routes'));
 
 server.listen(process.env.PORT || 3300);
