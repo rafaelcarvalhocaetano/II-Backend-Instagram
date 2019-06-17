@@ -19,8 +19,7 @@ module.exports = {
     await sharp(req.file.path)
           .resize(500)
           .jpeg({ quality: 70 })
-      .toFile(path.resolve(req.file.destination, 'resized', fileName));
-      
+      .toFile(path.resolve(req.file.destination, 'resized', fileName));      
     //delete image with file-system
     fs.unlinkSync(req.file.path);
 
