@@ -13,6 +13,7 @@ const io = require('socket.io')(server);
 
 mongoose.connect( conectionDB,  { useNewUrlParser: true } );
 app.use((req, res, next) => {
+  debugger
   req.io = io;
   res.setHeader('Access-Control-Allow-Origin', 'https://backend-instagram.herokuapp.com');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');

@@ -4,16 +4,19 @@ const path = require('path');
 const fs = require('fs');
 
 module.exports = {
- 
+   
   async index(req, res) {
     try {
-      const posts = await Post.find().sort('-createdAt');
+      const posts = await Post.find().sort('-createdAt')
+      .limit(5).exec((e, msg) => {
+        console.log(' s ', e);
+        console.log(' msg ', msg);
+      });
       return res.json(posts);
     } catch (e) {
-      console.log(' as ', e)
-      throw new Error;
-    }
-   
+      console.log(' 4 ', e);
+      
+    }   
   },
 
   async store(req, res) {
