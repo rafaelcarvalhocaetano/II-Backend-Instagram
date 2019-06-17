@@ -25,7 +25,7 @@ app.use((req, res, next) => {
 })
 app.use(cors({ origin: 'https://backend-instagram.herokuapp.com'}));
 
-app.use('https://backend-instagram.herokuapp.com/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
+app.use('/files', express.static(path.resolve(__dirname, '..', 'uploads', 'resized')));
 app.use(require('./routes/routes'));
 
 server.listen(process.env.PORT || 3300);
