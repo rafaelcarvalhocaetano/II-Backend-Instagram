@@ -8,7 +8,7 @@ const allowCors = require('./cors');
 const app = express ();
 
 mongoose.Promise = global.Promise
-module.exports = mongoose.connect('mongodb+srv://backend:10Sistem@s@cluster0-ejlyp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
+module.exports = mongoose.connect('mongodb+srv://@cluster0-ejlyp.mongodb.net/test?retryWrites=true&w=majority', { useNewUrlParser: true });
 
 app.use(allowCors);
 
