@@ -13,12 +13,7 @@ const conectionDB = process.env.MONGO_URL || 'mongodb+srv://backend:10Sistem@s@c
 const server = require('http').Server(app);
 const io = require('socket.io')(server);
 
-mongoose.connect(
-  conectionDB,
-  {
-    useNewUrlParser: true
-  }
-);
+mongoose.connect( conectionDB,  { useNewUrlParser: true } );
 app.use((req, res, next) => {
   req.io = io;
   next();
